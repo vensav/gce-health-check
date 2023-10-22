@@ -30,4 +30,4 @@ jobs:
               GITHUB_TOKEN: ${{ secrets.GO_GCE_HEALTH_CHECK_DEPLOY }}
             with:
                 version: latest
-                args: release --cleanup-previous --rm-dist
+                args: release --clean--rm-dist

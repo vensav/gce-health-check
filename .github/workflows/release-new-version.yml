@@ -1,4 +1,4 @@
-name: GO Package Release
+name: GO Package Release for gce-health-check
 
 
 on:
@@ -9,7 +9,7 @@ on:
         default: "v1.0.0"
 
 jobs:
-    hello:
+    build_and_release:
         runs-on: ubuntu-latest
         steps:
           - name: checkout

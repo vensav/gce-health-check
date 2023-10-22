@@ -27,7 +27,7 @@ jobs:
           - name: Create Go Release
             uses: goreleaser/goreleaser-action@v5
             env:
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              GITHUB_TOKEN: ${{ secrets.GO_GCE_HEALTH_CHECK_DEPLOY }}
             with:
                 version: latest
                 args: release --cleanup-previous --rm-dist

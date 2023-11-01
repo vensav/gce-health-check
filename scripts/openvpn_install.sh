@@ -1196,8 +1196,8 @@ function newClient() {
 
 	echo ""
 	echo "SCP Commands are -"
-	echo "scp -i ~/.ssh/givfi-openvpn ubuntu@vpn1.dev.joingivmo.com:$homeDir/$CLIENT.ovpn . "
-	echo "scp -i ~/.ssh/givfi-openvpn ubuntu@vpn1.dev.joingivmo.com:/$homeDir/$CLIENT.png .  "
+	echo "scp -i ~/.ssh/givfi-openvpn ubuntu@$IP:$homeDir/$CLIENT.ovpn . "
+	echo "scp -i ~/.ssh/givfi-openvpn ubuntu@$IP:$homeDir/$CLIENT.png .  "
 	echo ""
 
 	exit 0

@@ -1387,14 +1387,5 @@ initialCheck
 if [[ -e /etc/openvpn/server.conf && $AUTO_INSTALL != "y" ]]; then
 	manageMenu
 else
-	export DNS=9
-	export CLIENT=client1
-	export PASS=1
-	# Certificate Details
-	set KEY_ORG=Givfi
-	export KEY_COUNTRY="UNITED STATES"
-	export KEY_PROVINCE="CA"
-	export KEY_CITY="MARINA DEL REY" 
-	export KEY_EMAIL="info@givfi.com" 
 	installOpenVPN
 fi

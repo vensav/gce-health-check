@@ -801,6 +801,7 @@ ifconfig-pool-persist ipp.txt" >>/etc/openvpn/server.conf
 		sed -ne 's/^nameserver[[:space:]]\+\([^[:space:]]\+\).*$/\1/p' $RESOLVCONF | while read -r line; do
 			# Copy, if it's a IPv4 |or| if IPv6 is enabled, IPv4/IPv6 does not matter
 			if [[ $line =~ ^[0-9.]*$ ]] || [[ $IPV6_SUPPORT == 'y' ]]; then
+   				echo 'push "dhcp-option DNS 8.8.8.8"' >>/etc/openvpn/server.conf
 				echo "push \"dhcp-option DNS $line\"" >>/etc/openvpn/server.conf
 			fi
 		done
@@ -905,10 +906,8 @@ verb 3" >>/etc/openvpn/server.conf
 
 # Add Google Authenticator Plugin for Ubuntu
 if [[ $OS =~ (debian|ubuntu) ]]; then
-	echo "
-	username-as-common-name
-	plugin /usr/lib/x86_64-linux-gnu/openvpn/plugins/openvpn-plugin-auth-pam.so \"openvpn login USERNAME password PASSWORD\"
-	" >> /etc/openvpn/server.conf
+	echo "username-as-common-name" >> /etc/openvpn/server.conf
+	echo "plugin /usr/lib/x86_64-linux-gnu/openvpn/plugins/openvpn-plugin-auth-pam.so \"openvpn login USERNAME password PASSWORD\"" >> /etc/openvpn/server.conf
 
 	# Create folder for google-authenticator
 	mkdir -p /etc/openvpn/google-authenticator
